@@ -57,21 +57,30 @@ function Items() {
   const addToCart = (product) => {
     setCart([...cart, product]);
   };
+
   const viewItems = (cart) => {
     console.log(cart);
+    // const cartItems = cart.map((d) => <li key={d.name}>{d.name}</li>);
+//     <p>
+//     {cart.map(el => {
+//         return <div key={el.name}>
+//            <span>{el.price}</span>
+//            <span>{el.image}</span>
+//         </div>
+//     })}
+// </p>
 
-    const cartItems = cart.map((d) => <li key={d.name}>{d.name}</li>);
-    console.log(cartItems, "cartitems");
-    <table>
-      {cart.map((item) => (
-        <tr>
-          <td key={item.name}>{item.name}</td>
-          <td key={item.price}>{item.price}</td>
-          <td key={item.image}>{item.image}</td>
+    // console.log(cartItems, "cartitems");
+    // <table>
+    //   {cart.map((item) => (
+    //     <tr>
+    //       <td key={item.name}>{item.name}</td>
+    //       <td key={item.price}>{item.price}</td>
+    //       <td key={item.image}>{item.image}</td>
 
-        </tr>
-      ))}
-    </table>;
+    //     </tr>
+    //   ))}
+    // </table>;
 
     // console.log(cartItems,'cartItems');
   };
@@ -89,8 +98,11 @@ function Items() {
         {products.map((product) => (
           <div>
             <img src={product.image} alt={product.name} />
+            <h3 style={{color:'blue'}}>
+              {product.name} 
+            </h3>
             <h3>
-              {product.name} {product.price}
+            {product.price}
             </h3>
             <button onClick={() => addToCart(product)}>add to cart</button>
           </div>
