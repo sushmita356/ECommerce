@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.color-nav{
+  background-color: #3c8dbc;
+}
+.iconInHeader{
+  color:white;
+}
+.products{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
