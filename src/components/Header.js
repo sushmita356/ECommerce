@@ -16,7 +16,6 @@ function Header() {
           <Nav.Link href="#home">Phones</Nav.Link>
         </Nav>
         <Form inline>
-        <FontAwesomeIcon className="iconInHeader" icon={faEnvelope} />
         </Form>
       </Navbar>
     </div>
