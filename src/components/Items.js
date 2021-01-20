@@ -59,21 +59,47 @@ function Items() {
   };
 
   const viewItems = (cart) => {
-    console.log(cart,'cart');
-    console.log(cart.name);
-    let items = cart.map((item, index) => {
-      return ( 
-        <div class="col-4" key={item.id}>
-         {/* <div class="col-2">{item.id}</div> */}
-         <div class="col-2">{item.name}</div>
-         <div class="col-2">{item.price}</div>
-         <div class="col-2">{item.image}</div>
+    alert('iin view');
+    console.log(cart, "cart");
+    // console.log(cart.name, "name");
+    // console.log(cart.price, "price");
+    // console.log(cart.image, "image");
 
-       </div>
-      );
+    console.log(cart.length,'length');
+    for (var i = 0; i < cart.length; i++) {
+      // animalString += mammals[i] + " ";
+      // <h1>{cart[i].name}</h1>
+      <p>{cart.name} {cart.price} {cart.image}</p>
 
-  });
-  return items;
+   }
+   
+    // <ul>
+    //   {cart.map(function (item) {
+    //     console.log(item.name, "name");
+    //     console.log(item.price,'price');
+
+    //     return (
+    //       <li>
+    //         {" "}
+    //         {item.name} as the {item.price} {item.image}
+    //       </li>
+    //     );
+    //   })}
+    // </ul>;
+
+    //   let items = cart.map((item, index) => {
+    //     return (
+    //       <div class="col-4" key={item.id}>
+    //        {/* <div class="col-2">{item.id}</div> */}
+    //        <div class="col-2">{item.name}</div>
+    //        <div class="col-2">{item.price}</div>
+    //        <div class="col-2">{item.image}</div>
+
+    //      </div>
+    //     );
+
+    // });
+    // return items;
 
     // console.log(cart);
     // {
@@ -121,30 +147,30 @@ function Items() {
     <div className="App">
       <h1>Products</h1>
       <header>
-        <button className="bg-primary">cart Items ({cart.length})</button>
-        <button className="bg-success" onClick={() => viewItems(cart)}>
-          View cart Items
+        <button className="bg-primary" onClick={() => viewItems(cart)}>
+          cart Items ({cart.length})
         </button>
+        {/* <button className="bg-success" >
+          View cart Items
+        </button> */}
       </header>
 
       <div className="products">
         {products.map((product) => (
-          <div className='row'>
-            <div className='col-md-3'>
-            <img src={product.image} alt={product.name} />
-            <h3 style={{ color: "blue" }}>{product.name}</h3>
-            <h3>{product.price}</h3>
-            <button
-              class="badge bg-warning text-dark"
-              onClick={() => addToCart(product)}
-            >
-              add to cart
-            </button>
-
+          <div className="row">
+            <div className="col-md-3">
+              <img src={product.image} alt={product.name} />
+              <h3 style={{ color: "blue" }}>{product.name}</h3>
+              <h3>{product.price}</h3>
+              <button
+                class="badge bg-warning text-dark"
+                onClick={() => addToCart(product)}
+              >
+                add to cart
+              </button>
             </div>
           </div>
-        )
-        )}
+        ))}
       </div>
     </div>
   );
