@@ -60,6 +60,14 @@ function Items() {
 
   const viewItems = (cart) => {
     console.log(cart);
+    // return (
+    //   <li>
+    //     {cart.map((cart) => (
+    //       <li>{cart.name}</li>
+    //     ))}
+    //   </li>
+    // );
+  
     // const cartItems = cart.map((d) => <li key={d.name}>{d.name}</li>);
 //     <p>
 //     {cart.map(el => {
