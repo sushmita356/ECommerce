@@ -60,6 +60,9 @@ function Items() {
 
   const viewItems = (cart) => {
     console.log(cart);
+    // alert(cart)
+  
+
     // return (
     //   <li>
     //     {cart.map((cart) => (
@@ -67,16 +70,16 @@ function Items() {
     //     ))}
     //   </li>
     // );
-  
+
     // const cartItems = cart.map((d) => <li key={d.name}>{d.name}</li>);
-//     <p>
-//     {cart.map(el => {
-//         return <div key={el.name}>
-//            <span>{el.price}</span>
-//            <span>{el.image}</span>
-//         </div>
-//     })}
-// </p>
+    //     <p>
+    //     {cart.map(el => {
+    //         return <div key={el.name}>
+    //            <span>{el.price}</span>
+    //            <span>{el.image}</span>
+    //         </div>
+    //     })}
+    // </p>
 
     // console.log(cartItems, "cartitems");
     // <table>
@@ -106,12 +109,8 @@ function Items() {
         {products.map((product) => (
           <div>
             <img src={product.image} alt={product.name} />
-            <h3 style={{color:'blue'}}>
-              {product.name} 
-            </h3>
-            <h3>
-            {product.price}
-            </h3>
+            <h3 style={{ color: "blue" }}>{product.name}</h3>
+            <h3>{product.price}</h3>
             <button onClick={() => addToCart(product)}>add to cart</button>
           </div>
         ))}
