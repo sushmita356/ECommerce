@@ -59,9 +59,32 @@ function Items() {
   };
 
   const viewItems = (cart) => {
-    console.log(cart);
+    console.log(cart,'cart');
+    console.log(cart.name);
+    let items = cart.map((item, index) => {
+      return ( 
+        <div class="col-4" key={item.id}>
+         {/* <div class="col-2">{item.id}</div> */}
+         <div class="col-2">{item.name}</div>
+         <div class="col-2">{item.price}</div>
+         <div class="col-2">{item.image}</div>
+
+       </div>
+      );
+
+  });
+  return items;
+
+    // console.log(cart);
+    // {
+    //   cart.map(function (d, idx) {
+    //     return <li key={idx}>{d.name}</li>;
+    //   });
+    // }
+
+    // const cartItems = cart.map((d) => <li key={d.name}>{d.name}</li>);
+
     // alert(cart)
-  
 
     // return (
     //   <li>
@@ -71,7 +94,6 @@ function Items() {
     //   </li>
     // );
 
-    // const cartItems = cart.map((d) => <li key={d.name}>{d.name}</li>);
     //     <p>
     //     {cart.map(el => {
     //         return <div key={el.name}>
@@ -101,19 +123,28 @@ function Items() {
       <header>
         <button className="bg-primary">cart Items ({cart.length})</button>
         <button className="bg-success" onClick={() => viewItems(cart)}>
-          View Items
+          View cart Items
         </button>
       </header>
 
       <div className="products">
         {products.map((product) => (
-          <div>
+          <div className='row'>
+            <div className='col-md-3'>
             <img src={product.image} alt={product.name} />
             <h3 style={{ color: "blue" }}>{product.name}</h3>
             <h3>{product.price}</h3>
-            <button onClick={() => addToCart(product)}>add to cart</button>
+            <button
+              class="badge bg-warning text-dark"
+              onClick={() => addToCart(product)}
+            >
+              add to cart
+            </button>
+
+            </div>
           </div>
-        ))}
+        )
+        )}
       </div>
     </div>
   );
