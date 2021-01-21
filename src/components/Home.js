@@ -7,58 +7,54 @@ function Home() {
   return (
     <div>
       <Container>
-        <br/>
+        <br />
         <Row>
           <Col>
-            <Image src={p1} rounded width='200px' height='300px'/>
+            <Image src={p1} rounded width="200px" height="300px" />
           </Col>
           <Col>
-            <Image src={p2} rounded width='200px' height='300px' />
+            <Image src={p2} rounded width="200px" height="300px" />
           </Col>
           <Col>
-            <Image src={p1} rounded width='200px' height='300px' />
+            <Image src={p1} rounded width="200px" height="300px" />
           </Col>
           <Col>
-            <Image src={p1} rounded width='200px' height='300px' />
+            <Image src={p1} rounded width="200px" height="300px" />
           </Col>
-
         </Row>
         <br />
         <br />
 
         <Row>
           <Col>
-            <Image src={p1} rounded width='200px' height='300px'/>
+            <Image src={p1} rounded width="200px" height="300px" />
           </Col>
           <Col>
-            <Image src={p2} rounded width='200px' height='300px' />
+            <Image src={p2} rounded width="200px" height="300px" />
           </Col>
           <Col>
-            <Image src={p1} rounded width='200px' height='300px' />
+            <Image src={p1} rounded width="200px" height="300px" />
           </Col>
           <Col>
-            <Image src={p1} rounded width='200px' height='300px' />
+            <Image src={p1} rounded width="200px" height="300px" />
           </Col>
-
         </Row>
         <br />
         <br />
         <Row>
           <Col>
-            <Image src={p1} rounded width='200px' height='200px'/>
+            <Image src={p1} rounded width="200px" height="200px" />
           </Col>
           <Col>
-            <Image src={p2} rounded width='200px' height='200px' />
+            <Image src={p2} rounded width="200px" height="200px" />
           </Col>
           <Col>
-            <Image src={p1} rounded width='200px' height='200px' />
+            <Image src={p1} rounded width="200px" height="200px" />
           </Col>
           <Col>
-            <Image src={p1} rounded width='200px' height='200px' />
+            <Image src={p1} rounded width="200px" height="200px" />
           </Col>
-
         </Row>
-
       </Container>
     </div>
   );
