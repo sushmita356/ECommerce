@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import "../App.css";
-import {Card} from 'react-bootstrap';
-import {Grid} from '@material-ui/core/Grid';
+import React, { useState, useEffect } from "react";
 
-function Items() {
+const Shop = () => {
   const [cart, setCart] = useState([]);
-  const [products] = useState([
+  const [cartTotal, setCartTotal] = useState(0);
+
+  const products = [
     {
       name: "samsung",
       price: "10000",
@@ -54,140 +53,126 @@ function Items() {
       image:
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSFJiEPqVrfAgfETMh-ZCnLCJjxZSgQJUgZW66dco8HYiqsgY6N2osNXMY_1X8M6zt1-AZjGdUutMI&usqp=CAc",
     },
-  ]);
+  ];
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
+  useEffect(() => {
+    total();
+  }, [cart]);
+
+  const total = () => {
+    let totalVal = 0;
+    for (let i = 0; i < cart.length; i++) {
+      totalVal += cart[i].price;
+    }
+    setCartTotal(totalVal);
   };
 
-  const viewItems = (cart) => {
-    alert('in view');
-    // const view = [...cart];
-    // console.log(view,'view');
-    console.log(cart, "cart");
-    const cardsArray = cart.map(robot => (
-      <Card
-        name={cart.name}
-        price={cart.price}
-        image={cart.image} />
-    ));
-  
-    // const items =cart.map((item) => {
-    //   <li>{item}</li>
-    // });
-
-    // console.log(cart.name, "name");
-    // console.log(cart.price, "price");
-    // console.log(cart.image, "image");
-
-  //   console.log(cart.length,'length');
-  //   for (var i = 0; i < cart.length; i++) {
-  //     // animalString += mammals[i] + " ";
-  //     // <h1>{cart[i].name}</h1>
-  //     <p>{cart.name} {cart.price} {cart.image}</p>
-
-  //  }
-   
-    // <ul>
-    //   {cart.map(function (item) {
-    //     console.log(item.name, "name");
-    //     console.log(item.price,'price');
-
-    //     return (
-    //       <li>
-    //         {" "}
-    //         {item.name} as the {item.price} {item.image}
-    //       </li>
-    //     );
-    //   })}
-    // </ul>;
-
-    //   let items = cart.map((item, index) => {
-    //     return (
-    //       <div class="col-4" key={item.id}>
-    //        {/* <div class="col-2">{item.id}</div> */}
-    //        <div class="col-2">{item.name}</div>
-    //        <div class="col-2">{item.price}</div>
-    //        <div class="col-2">{item.image}</div>
-
-    //      </div>
-    //     );
-
-    // });
-    // return items;
-
-    // console.log(cart);
-    // {
-    //   cart.map(function (d, idx) {
-    //     return <li key={idx}>{d.name}</li>;
-    //   });
-    // }
-
-    // const cartItems = cart.map((d) => <li key={d.name}>{d.name}</li>);
-
-    // alert(cart)
-
-    // return (
-    //   <li>
-    //     {cart.map((cart) => (
-    //       <li>{cart.name}</li>
-    //     ))}
-    //   </li>
-    // );
-
-    //     <p>
-    //     {cart.map(el => {
-    //         return <div key={el.name}>
-    //            <span>{el.price}</span>
-    //            <span>{el.image}</span>
-    //         </div>
-    //     })}
-    // </p>
-
-    // console.log(cartItems, "cartitems");
-    // <table>
-    //   {cart.map((item) => (
-    //     <tr>
-    //       <td key={item.name}>{item.name}</td>
-    //       <td key={item.price}>{item.price}</td>
-    //       <td key={item.image}>{item.image}</td>
-
-    //     </tr>
-    //   ))}
-    // </table>;
-
-    // console.log(cartItems,'cartItems');
+  const addToCart = (el) => {
+    setCart([...cart, el]);
   };
-  return (
+
+  // const incrementCart = (id,value) => {
+  //   setCart(cart.length+1);
+
+  //   let updatedCart = cart.map(item => item.id === id ? item.quantity += value : item)
+
+  //   setCart(updatedCart)
+
+  // };
+  const incrementCart = (el) => {
+    setCart([...cart, el]);
+
+    // setCart(PrevState=>PrevState+1);
+
+    // setCart([...cart, el]);
+
+    // const currentItems = [...cart];
+    // console.log(currentItems.length, "items count");
+    
+
+    // currentItems[index].quantity += 1;
+    // setCart(currentItems.length + 1);
+  };
+
+  const decrementCart = (index) => {
+    // setCart([el,...cart]);
+    const currentItems = [...cart];
+
+    currentItems[index].name.length -= 1;
+    setCart(currentItems);
+
+
+    // setCart(cart.length-1);
+    // const currentItems = [...cart];
+    // console.log(currentItems.length, "items count");
+
+    // currentItems[index].quantity += 1;
+    // setCart(currentItems.length - 1);
+  };
+
+  const removeFromCart = (el) => {
+    let hardCopy = [...cart];
+    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    setCart(hardCopy);
+  };
+
+  const listItems = products.map((product) => (
     <div className="App">
-      <h1>Products</h1>
-      <header>
-        <button className="bg-primary" onClick={() => viewItems(cart)}>
-          cart Items ({cart.length})
-        </button>
-        {/* <button className="bg-success" >
-          View cart Items
-        </button> */}
-      </header>
-      <div className="products">
-        {products.map((product) => (
-          <div className="row">
-            <div className="col-md-3">
-              <img src={product.image} alt={product.name} />
-              <h3 style={{ color: "blue" }}>{product.name}</h3>
-              <h3>{product.price}</h3>
-              <button
-                class="badge bg-warning text-dark"
-                onClick={() => addToCart(product)}
-              >
-                add to cart
-              </button>
-            </div>
-          </div>
-        ))}
+      <div className="products row">
+        <div className="col-md-3">
+          <img src={product.image} alt={product.name} />
+          <h3 style={{ color: "blue" }}>{product.name}</h3>
+          <h3>{product.price}</h3>
+          <button
+            className="bg-primary btn-sm"
+            onClick={() => incrementCart(product)}
+          >
+            +
+          </button>
+          <button
+            class="badge bg-warning text-dark"
+            onClick={() => addToCart(product)}
+          >
+            add to cart
+          </button>
+
+          <button
+            className="bg-primary btn-sm"
+            onClick={() => decrementCart(product.id)}
+          >
+            -
+          </button>
+        </div>
       </div>
     </div>
-  );
-}
+  ));
 
-export default Items;
+  const cartItems = cart.map((el) => (
+    <div className="products">
+      <div key={el.id}>
+        {`${el.name}: $${el.price}`}
+        <input
+          type="submit"
+          className="bg-dark"
+          value="remove"
+          onClick={() => removeFromCart(el)}
+        />
+      </div>
+    </div>
+  ));
+
+  return (
+    <div className="App">
+      STORE
+      <button className="bg-success float-right" onclick={() => cartItems()}>
+        cart Items {cart.length}
+      </button>
+      <div>{listItems}</div>
+      <div>CART</div>
+      <div>{cartItems}</div>
+      <div>Total: ${cartTotal}</div>
+    </div>
+  );
+};
+
+export default Shop;
