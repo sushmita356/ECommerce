@@ -88,14 +88,13 @@ const Shop = () => {
 
     // const currentItems = [...cart];
     // console.log(currentItems.length, "items count");
-    
 
     // currentItems[index].quantity += 1;
     // setCart(currentItems.length + 1);
   };
 
   const decrementCart = (PrevState) => {
-        setCart(PrevState=>PrevState-1);
+    setCart((PrevState) => PrevState - 1);
 
     // console.log(PrevState,'prevState');
     // setCart([el,...cart]);
@@ -103,7 +102,6 @@ const Shop = () => {
 
     // currentItems[index].name.length -= 1;
     // setCart(currentItems);
-
 
     // setCart(cart.length-1);
     // const currentItems = [...cart];
@@ -114,14 +112,18 @@ const Shop = () => {
   };
 
   const removeFromCart = (el) => {
-    console.log(el,'el');
+    console.log(el, "el");
     let hardCopy = [...cart];
     hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
-    console.log(hardCopy,'hardCopy');
+    console.log(hardCopy, "hardCopy");
     // console.log(cartItem.id,'idd');
-    console.log(el.id,'elid');
+    console.log(el.id, "elid");
     setCart(hardCopy);
+    var array = this.state.people;
   };
+  //   const removeFromCart = e => {
+  //     setCart(cart.slice(cart.indexOf(e.target.name, 1)))
+  // }
 
   const listItems = products.map((product) => (
     <div className="App">
@@ -155,17 +157,38 @@ const Shop = () => {
   ));
 
   const cartItems = cart.map((el) => (
-    <div className="products">
-      <div key={el.id}>
-        {`${el.name}: $${el.price}`}
+    <div className="row">
+      <div className="col-md-3">
+        <img src={el.image} alt={el.name} />
+        <h3 style={{ color: "blue" }}>{el.name}</h3>
+        <h3>{el.price}</h3>
         <input
           type="submit"
           className="bg-dark"
           value="remove"
           onClick={() => removeFromCart(el)}
         />
+        <input type="submit" className="bg-dark" value="Buy Now" />
+
+        {/* <button
+            class="badge bg-warning text-dark"
+            onClick={() => addToCart(product)}
+          >
+            add to cart
+          </button> */}
       </div>
     </div>
+    // <div className="products">
+    //   <div key={el.id}>
+    //     {`${el.name}: $${el.price}`}
+    //     <input
+    //       type="submit"
+    //       className="bg-dark"
+    //       value="remove"
+    //       onClick={() => removeFromCart(el)}
+    //     />
+    //   </div>
+    // </div>
   ));
 
   return (
@@ -175,7 +198,7 @@ const Shop = () => {
         cart Items {cart.length}
       </button>
       <div>{listItems}</div>
-      <div>CART</div>
+      <div className="bg-primary">CART</div>
       <div>{cartItems}</div>
       {/* <div>Total: ${cartTotal}</div> */}
     </div>
