@@ -94,12 +94,15 @@ const Shop = () => {
     // setCart(currentItems.length + 1);
   };
 
-  const decrementCart = (index) => {
-    // setCart([el,...cart]);
-    const currentItems = [...cart];
+  const decrementCart = (PrevState) => {
+        setCart(PrevState=>PrevState-1);
 
-    currentItems[index].name.length -= 1;
-    setCart(currentItems);
+    // console.log(PrevState,'prevState');
+    // setCart([el,...cart]);
+    // const currentItems = [...cart];
+
+    // currentItems[index].name.length -= 1;
+    // setCart(currentItems);
 
 
     // setCart(cart.length-1);
@@ -111,8 +114,12 @@ const Shop = () => {
   };
 
   const removeFromCart = (el) => {
+    console.log(el,'el');
     let hardCopy = [...cart];
     hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    console.log(hardCopy,'hardCopy');
+    // console.log(cartItem.id,'idd');
+    console.log(el.id,'elid');
     setCart(hardCopy);
   };
 
@@ -170,7 +177,7 @@ const Shop = () => {
       <div>{listItems}</div>
       <div>CART</div>
       <div>{cartItems}</div>
-      <div>Total: ${cartTotal}</div>
+      {/* <div>Total: ${cartTotal}</div> */}
     </div>
   );
 };
