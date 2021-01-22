@@ -36,16 +36,42 @@
     transform: rotate(360deg);
   }
 }
-.color-nav{
+.color-nav {
   background-color: #3c8dbc;
 }
-.iconInHeader{
-  color:white;
+.iconInHeader {
+  color: white;
 }
-.products{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  display: inline-grid;
+.products {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  /* display: inline-grid; */
 
-  }
+  /* width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+   
+  display: grid;
+   
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px; */
+
+
+
+}
+.grid-container{
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Card } from "react-bootstrap";
 
 const Shop = () => {
   const [cart, setCart] = useState([]);
@@ -119,42 +120,66 @@ const Shop = () => {
     // console.log(cartItem.id,'idd');
     console.log(el.id, "elid");
     setCart(hardCopy);
-    var array = this.state.people;
+    // var array = this.state.people;
   };
   //   const removeFromCart = e => {
   //     setCart(cart.slice(cart.indexOf(e.target.name, 1)))
   // }
 
-  const listItems = products.map((product) => (
-    <div className="App">
-      <div className="products row">
-        <div className="col-md-3">
-          <img src={product.image} alt={product.name} />
-          <h3 style={{ color: "blue" }}>{product.name}</h3>
-          <h3>{product.price}</h3>
-          <button
-            className="bg-primary btn-sm"
-            onClick={() => incrementCart(product)}
-          >
-            +
-          </button>
-          <button
-            class="badge bg-warning text-dark"
-            onClick={() => addToCart(product)}
-          >
-            add to cart
-          </button>
+  // const removeFromCart = (e) => {
+  //   const newArr = [...cart];
+  //   newArr.splice(
+  //     newArr.findIndex((item) => item.name === e.target.name),
+  //     1
+  //   );
+  //   updateList(newArr);
+  // };
 
-          <button
-            className="bg-primary btn-sm"
-            onClick={() => decrementCart(product.id)}
-          >
-            -
-          </button>
+//   const listItems = products.map((product) => (  <Card>
+//   <Card.Img variant="top" src={product.image} />
+//   <Card.Body>
+//     <Card.Title>Card title</Card.Title>
+//     <Card.Text>
+//       {product.price} {product.name}
+//     </Card.Text>
+//   </Card.Body>
+//   <Card.Footer>
+//     <small className="text-muted">Last updated 3 mins ago</small>
+//   </Card.Footer>
+// </Card>
+//   ))
+
+
+  const listItems = products.map((product) => (
+        <div className="grid-container">
+          <Card className='grid-item'>
+            <img src={product.image} alt={product.name} style={{width:'100px',height:'200px'}} />
+            <h3 style={{ color: "blue" }}>{product.name}</h3>
+            <h3>{product.price}</h3>
+            <button
+              className="bg-primary btn-sm"
+              onClick={() => incrementCart(product)}
+            >
+              +
+            </button>
+            <button
+              class="badge bg-warning text-dark"
+              onClick={() => addToCart(product)}
+            >
+              add to cart
+            </button>
+
+            <button
+              className="bg-primary btn-sm"
+              onClick={() => decrementCart(product.id)}
+            >
+              -
+            </button>
+          </Card>
         </div>
-      </div>
-    </div>
   ));
+
+
 
   const cartItems = cart.map((el) => (
     <div className="row">
@@ -193,7 +218,7 @@ const Shop = () => {
 
   return (
     <div className="App">
-      STORE
+      <h1 className="bg-success">STORE</h1>
       <button className="bg-success float-right" onclick={() => cartItems()}>
         cart Items {cart.length}
       </button>
