@@ -7,48 +7,56 @@ const Shop = () => {
 
   const products = [
     {
+      id:1,
       name: "samsung",
       price: "10000",
       image:
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQtNsCk5DT9IbERsFRoWv3KLqzO6ZayyNbCKepFYG_sYI54oiZ5X1TRS9qlODS9vAGC14uNB6xw9A&usqp=CAc",
     },
     {
+      id:2,
       name: "Honor 9 lite",
       price: "20000",
       image:
         "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTHYE-K1YHCMH2_6w-s9VZ_RmgnIKijKyBqJu8-bFvhHUVQ8IgsQ9WjdL3Kh0Pd&usqp=CAc",
     },
     {
+      id:3,
       name: "iphone",
       price: "30000",
       image:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQBopx3JLCsu7icQRScVYPin-Bolt2LztD9YelhM9BSDAMDzHj0pycNlta6I4ZXuDkecPlMO25urGe-o40fPGuJAhkJqBPFqZtyWT4_wX4&usqp=CAc",
     },
     {
+      id:4,
       name: "HTC",
       price: "40000",
       image:
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR35Gbe_Y5Z3ejsthA-kzmkeuCKHKW_gaqeom29v5BOxSmi0LUw3xyotIL5niIZ2bgv_IYNfU25rg&usqp=CAc",
     },
     {
+      id:5,
       name: "MI redmi",
       price: "50000",
       image:
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSFJiEPqVrfAgfETMh-ZCnLCJjxZSgQJUgZW66dco8HYiqsgY6N2osNXMY_1X8M6zt1-AZjGdUutMI&usqp=CAc",
     },
     {
+      id:6,
       name: "MI redmi",
       price: "50000",
       image:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT4DseEDhyULcZlY_vrsybyuu0XUx6zuNKuN80prPuLf2v9l0AuKJeHf7XIsAyeYOaQH05R1xzag_3v&usqp=CAc",
     },
     {
+      id:7,
       name: "MI redmi",
       price: "50000",
       image:
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSFJiEPqVrfAgfETMh-ZCnLCJjxZSgQJUgZW66dco8HYiqsgY6N2osNXMY_1X8M6zt1-AZjGdUutMI&usqp=CAc",
     },
     {
+      id:8,
       name: "MI redmi",
       price: "50000",
       image:
@@ -112,14 +120,20 @@ const Shop = () => {
     // setCart(currentItems.length - 1);
   };
 
-  const removeFromCart = (el) => {
-    console.log(el, "el");
-    let hardCopy = [...cart];
-    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
-    console.log(hardCopy, "hardCopy");
-    // console.log(cartItem.id,'idd');
-    console.log(el.id, "elid");
-    setCart(hardCopy);
+  const removeFromCart = (id) => {
+    console.log(id,'deleteID');
+    const newList = cart.filter((item) => item.id !== id);
+    setCart(newList);
+    console.log(cartItems,'cartitems');
+
+    // setCart(cart.slice(cart.indexOf(e.target.name, 1)))
+    // console.log(el, "el");
+    // let hardCopy = [...cart];
+    // hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    // console.log(hardCopy, "hardCopy");
+    // // console.log(cartItem.id,'idd');
+    // console.log(el.id, "elid");
+    // setCart(hardCopy);
     // var array = this.state.people;
   };
   //   const removeFromCart = e => {
@@ -191,7 +205,7 @@ const Shop = () => {
           type="submit"
           className="bg-dark"
           value="remove"
-          onClick={() => removeFromCart(el)}
+          onClick={() => removeFromCart(el.id)}
         />
         <input type="submit" className="bg-dark" value="Buy Now" />
 
