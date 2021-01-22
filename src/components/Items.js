@@ -121,7 +121,7 @@ const Shop = () => {
   };
 
   const removeFromCart = (id) => {
-    console.log(id,'deleteID');
+    console.log(id,'deleteID')
     const newList = cart.filter((item) => item.id !== id);
     setCart(newList);
     console.log(cartItems,'cartitems');
@@ -166,7 +166,7 @@ const Shop = () => {
 
   const listItems = products.map((product) => (
         <div className="grid-container">
-          <Card className='grid-item'>
+          <div className='grid-item'>
             <img src={product.image} alt={product.name} style={{width:'100px',height:'200px'}} />
             <h3 style={{ color: "blue" }}>{product.name}</h3>
             <h3>{product.price}</h3>
@@ -189,7 +189,7 @@ const Shop = () => {
             >
               -
             </button>
-          </Card>
+          </div>
         </div>
   ));
 

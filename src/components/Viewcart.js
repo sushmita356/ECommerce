@@ -5,7 +5,7 @@ function Viewcart(props) {
   console.log(props, "propss");
   return <div>
     <h1>
-      hello world
+      hello world{props.name}
     </h1>
   </div>;
 }

@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Items />
+      <Items  />
       {/* <Switch>
         <Route path="/" component={Items} />
         <Route path="/dashboard" component={ViewCart} />
