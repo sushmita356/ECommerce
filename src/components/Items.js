@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import history from "./History";
+// import history from "./History";
+import Viewcart from "./Viewcart";
+import {Redirect} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
 
 const Shop = () => {
   const [cart, setCart] = useState([]);
@@ -81,6 +85,16 @@ const Shop = () => {
   const addToCart = (el) => {
     setCart([...cart, el]);
   };
+  // const View =()=>{
+  //    <Redirect to="/Viewcart" />;
+
+  // }
+  const history = useHistory();
+  const View = () => history.push('/Viewcart');//eg.history.push('/login');
+
+  // View = () => {
+  //   <Redirect to="/Viewcart" />;
+  // };
 
   // const incrementCart = (id,value) => {
   //   setCart(cart.length+1);
@@ -165,10 +179,9 @@ const Shop = () => {
   // </Card>
   //   ))
 
-  const calculatePrice = () => {
-    return cart.reduce((price, product) => price + product.price, 0);
-  };
-
+  // const calculatePrice = () => {
+  //   return cart.reduce((price, product) => price + product.price, 0);
+  // };
 
   const listItems = products.map((product) => (
     <div className="grid-container">
@@ -222,11 +235,18 @@ const Shop = () => {
 
   return (
     <div className="App">
+      {/* <Viewcart records={cart}/>  */}
+
+      {/* {products.map((product, key) => {
+        return <Viewcart key={key} {...product} />;
+      })} */}
+      {/* <Viewcart items={cart} /> */}
+
       <h1 className="bg-success">
         STORE
         <button
           className="bg-success btn-sm float-right"
-          onClick={() => history.push("/Viewcart")}
+          onClick={() => View()}
         >
           cart Items {cart.length}
         </button>

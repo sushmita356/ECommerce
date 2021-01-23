@@ -6,7 +6,11 @@ function Viewcart(props) {
   console.log(Items.name, "items");
   return (
     <div>
+      
       <h1>hello world{props.name}</h1>
+      <h1>{props.price}</h1>
+      <h1>{props.image}</h1>
+
     </div>
   );
 }
