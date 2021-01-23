@@ -14,7 +14,8 @@ function App() {
         <Route path="/" exact>
           <Items />
         </Route>
-        <Route path="/Viewcart" exact component={ViewCart} />
+        <Route path="/Viewcart" exact />
+        <ViewCart/>
       </Router>
       {/* <Switch>
         <Route path="/">

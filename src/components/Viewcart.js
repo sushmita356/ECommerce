@@ -1,16 +1,21 @@
 import React from "react";
 import Items from "./Items";
 
+
 function Viewcart(props) {
-  console.log(props, "propss");
-  console.log(Items.name, "items");
+  const cart = props;
+  console.log(cart,'cart const');
+  console.log(props, "propss cart");
+  cart.map(function(item, i){
+    return <li key={i}>{item.name}</li>
+  })
+  
+  // console.log(prop)
+  // console.log(Items.name, "items");
   return (
     <div>
+      <h1>hello worldsss</h1>
       
-      <h1>hello world{props.name}</h1>
-      <h1>{props.price}</h1>
-      <h1>{props.image}</h1>
-
     </div>
   );
 }

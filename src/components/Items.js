@@ -235,7 +235,6 @@ const Shop = () => {
 
   return (
     <div className="App">
-      {/* <Viewcart records={cart}/>  */}
 
       {/* {products.map((product, key) => {
         return <Viewcart key={key} {...product} />;
@@ -257,6 +256,8 @@ const Shop = () => {
       <div>{listItems}</div>
       <div className="bg-primary">CART</div>
       <div>{cartItems}</div>
+      <Viewcart cart={cart}/>
+
       {/* <div>Total: ${cartTotal}</div> */}
     </div>
   );
